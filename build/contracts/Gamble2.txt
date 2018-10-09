@@ -1,0 +1,35 @@
+//contract Gamble2 {
+    address[] public players;
+
+
+    struct Player {
+        uint256 amountBet;
+        uint256 numberSelected;
+    }
+
+
+    function() public payable {}
+
+
+    function kill() public {
+        if(msg.sender == owner) selfdestruct(owner);
+    }
+
+    function pay(){
+    if (balances[msg.sender] < amount) return false;
+    balances[msg.sender] -= amount;
+    balances[receiver] += amount;
+    emit Transfer(msg.sender, receiver, amount);
+
+   // }
+
+
+/*    function sendCoin(address receiver, uint amount) public returns(bool sufficient) {
+        if (balances[msg.sender] < amount) return false;
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        emit Transfer(msg.sender, receiver, amount);
+        return true;
+    } */
+
+}
